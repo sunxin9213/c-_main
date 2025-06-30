@@ -9,7 +9,7 @@ struct Person {
 
 int main() {
     // 使用列表初始化
-    Person person1{"Bob", 25, 1.75};
+    Person person1{"Bob", 60, 1.75};
 
     std::cout << "Name: " << person1.name << ", Age: " << person1.age 
               << ", Height: " << person1.height << std::endl;
