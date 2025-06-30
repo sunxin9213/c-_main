@@ -38,7 +38,8 @@
                 "panel": "shared",
                 "showReuseMessage": false,
                 "clear": true          // 每次运行前清空输出
-            }
+            },
+            "problemMatcher": []
         }
     ]
 }

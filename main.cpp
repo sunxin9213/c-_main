@@ -1,15 +1,18 @@
 #include <iostream>
-#include <future>
- 
-int asyncTask() {
-    return 58;
-}
- 
+#include <string>
+
+struct Person {
+    std::string name;
+    int age;
+    double height;
+};
+
 int main() {
-    std::packaged_task<int()> task(asyncTask);//std::packaged_task可移动但不可复制
-    std::future<int> result = task.get_future();
-    std::thread t(std::move(task));//可移动但不可复制，用移动语义move
-    t.join();
-    std::cout << "The result is: " << result.get() << std::endl;
+    // 使用列表初始化
+    Person person1{"Bob", 25, 1.75};
+
+    std::cout << "Name: " << person1.name << ", Age: " << person1.age 
+              << ", Height: " << person1.height << std::endl;
+
     return 0;
 }
