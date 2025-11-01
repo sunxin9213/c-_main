@@ -8,5 +8,9 @@ project(MyProject)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+file(GLOB SOURCES "src/*.cpp")
+
+
+include_directories(include)
 # 添加可执行文件
-add_executable(main src/main.cpp)
+add_executable(main main.cpp ${SOURCES})
