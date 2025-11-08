@@ -8,9 +8,16 @@ namespace test_a {
     }
 }
 
+A::A() {
+    std::cout << "A created" << std::endl;
+}
+
+A::~A() {
+    std::cout << "A dead" << std::endl;
+}
 
 void A::funcA() {
-    member_b->funcB();
+    std::cout << "hehe" << std::endl;
 }
 
 int A::get_value() const {
