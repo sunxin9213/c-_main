@@ -1,5 +1,10 @@
 #pragma once
 
+template <typename T >
+T func_template(T a, T b) {
+    return a + b;
+}
+
 class A{
     public:
         A();

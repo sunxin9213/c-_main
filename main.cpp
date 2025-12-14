@@ -1,18 +1,43 @@
-#include "../include/test.h"
+// #include "../include/test.h"
+// #include "../include/class_template.h"
+#include <string>
+#include <string.h>
 
-using A_PTR = std::unique_ptr<A>;
-using A_PTRS = std::vector<A_PTR>;
+//嵌套类的使用如下
+//如果想class B的声明和定义分开，也就是B使用前向声明，然后B在类外定义，那么对于成员变量data_b就应该使用指针
+//模板类在编译过程中，不会使用类型检查，因此可以不使用第2点
+
+class A{
+    public:
+        class B{
+            friend A;
+            public:
+                int pub_b;
+            protected:
+                int pro_b;
+            private:
+                int pri_b;
+        };
+
+        int pub_a;
+        B data_b;
+
+        void set() {
+            data_b.pro_b = 0;
+            data_b.pri_b = 0;
+        }
+
+    protected:
+        int pro_a;
+
+    private:
+        int pri_a;
+
+};
 
 int main() {
-    TEST test_a;
-    TEST test_c;
-
-    test_c = std::move(test_a);
-    //这种先move，但是还能使用 =test_a是正常的，因为move只是将test_a转换成右值引用，而不是彻底销毁，test_a
-    //但是尽量不使用move后的对象，因为可能状态是未知的，如果使用接可能重置
-    TEST test_b = test_a;
-
-
-    TEST test_d = std::move(test_b);
+        A test_a;
+        test_a.set();
+        
     return 0;
 }
